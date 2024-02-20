@@ -64,11 +64,11 @@ local function make_entry_from_bookmarks(opts)
             end
         end
 
-        local line_info = { " -> " .. entry.lnum, "Comment" }
+        local line_info = { "-> " .. entry.lnum, "Comment" }
 
         return displayer({
             { filename, "Comment" },
-            line_info,
+            {line_info,"TelescopeParent"},
             entry.text:gsub(".* | ", ""),
         })
     end
