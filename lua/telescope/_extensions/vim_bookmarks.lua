@@ -48,10 +48,12 @@ local function make_entry_from_bookmarks(opts)
         separator = " ",
         items = {
             { width = nil },
-            { width = nil },
             { remaining = true },
         },
     })
+        local function trim(s)
+            return (s:gsub("^%s*(.-)%s*$", "%1"))
+        end
 
     local make_display = function(entry)
         local filename
@@ -64,12 +66,10 @@ local function make_entry_from_bookmarks(opts)
             end
         end
 
-        local line_info = { "-> " .. entry.lnum, "Comment" }
 
         return displayer({
-            { filename, "Comment" },
-            {line_info,"TelescopeParent"},
-            entry.text:gsub(".* | ", ""),
+            { filename.. " -> " .. entry.lnum, "Comment" },
+            {trim(entry.text),"TelescopeParent"}
         })
     end
 
