@@ -69,7 +69,7 @@ local function make_entry_from_bookmarks(opts)
 
         return displayer({
             { filename.. " -> " .. entry.lnum, "Comment" },
-            {trim(entry.text),"TelescopeParent"}
+            {"  "..trim(entry.text),"TelescopeParent"}
         })
     end
 
