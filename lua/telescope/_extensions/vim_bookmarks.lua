@@ -47,8 +47,8 @@ local function make_entry_from_bookmarks(opts)
     local displayer = entry_display.create({
         separator = " ",
         items = {
-            { width = 10 },
-            { width = 30 },
+            { width = nil },
+            { width = nil },
             { remaining = true },
         },
     })
@@ -64,7 +64,7 @@ local function make_entry_from_bookmarks(opts)
             end
         end
 
-        local line_info = { "->" .. entry.lnum, "TelescopeResultsLineNr" }
+        local line_info = { " -> " .. entry.lnum, "Comment" }
 
         return displayer({
             { filename, "Comment" },
